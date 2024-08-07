@@ -1,0 +1,34 @@
+{ 
+    "info_type_transformations" {
+        "transformations" {
+            "info_types" {
+            "name": "EMAIL_ADDRESS"
+            }
+            "primitive_transformation" {
+            "replace_config" {
+                "new_value" {
+                "string_value": "[EMAIL]"
+                }
+            }
+            }
+        }
+        "transformations" {
+            "info_types" {
+            "name": "US_SOCIAL_SECURITY_NUMBER"
+            }
+            "primitive_transformation" {
+            "crypto_replace_ffx_fpe_config" {
+                "crypto_key" {
+                "kms_wrapped" {
+                    "wrapped_key": "CiQALy1O1aFkcP4oQ2ZE7mLK0p0Zpf4TW/IoCuoQV5bNl7pZIAUSSQCru/H6DWebgZLb74VhEqhHjqz8E/UkFkldms393YooMqQxBXHB8mbrqYlBRZBr3FR+pnlN40eOB2nLXpUBoeUVDNcE9fEs0RE="
+                    "crypto_key_name": "projects/us-gcp-ame-con-c2dbd-npd-1/locations/global/keyRings/dlp-keyring/cryptoKeys/dlp-key"
+                }
+                }
+                "radix": 95
+                "surrogate_info_type" {
+                "name": "SSN:"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+setup.py
+ingestion_dataflow_setup.egg-info/PKG-INFO
+ingestion_dataflow_setup.egg-info/SOURCES.txt
+ingestion_dataflow_setup.egg-info/dependency_links.txt
+ingestion_dataflow_setup.egg-info/requires.txt
+ingestion_dataflow_setup.egg-info/top_level.txt

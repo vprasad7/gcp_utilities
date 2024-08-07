@@ -1,0 +1,28 @@
+dev:
+  project: 'us-gcp-ame-con-c2dbd-npd-1'
+  jobname: 'pii-data-protection-dataflow'
+  setup_file: './setup.py'
+  save_main_session: True 
+  runner: 'DataflowRunner'
+  staging_location: 'gs://my-dlp-bucket01/dev/tmp/dataflow_stg'
+  temp_location: 'gs://my-dlp-bucket01/dev/tmp/dataflow_tmp'
+  region: 'us-east4'
+  worker_zone: 'us-east4-a'
+  worker_machine_type: 'n1-standard-32' 
+  template_location: 'gs://my-dlp-bucket01/dev/dataflow/template/data_ingestion_dataflow.json'
+  worker_disk_type: 'compute.googleapis.com/projects//zones//diskTypes/pd-ssd'
+  disk_size_gb: '30'
+  max_num_workers: '1' 
+  subnetwork: 'https://www.googleapis.com/compute/v1/projects/us-gcp-ame-con-c2dbd-npd-1/regions/us-east4/subnetworks/usgcpameconc2dbdnpd1-vpc3-sn3'
+  autoscaling_algorithm: THROUGHPUT_BASED
+  label: 'pii-dataflow-job'
+  window_fixed_second: 500
+  windowing_count: 3
+  windowing_processing_sec: 1
+  pub_sub_subscription: 'projects/us-gcp-ame-con-c2dbd-npd-1/subscriptions/myPubSub01-sub'
+  deidentify_template: 'projects/us-gcp-ame-con-c2dbd-npd-1/locations/global/deidentifyTemplates/myTemplate01'
+  inspect_template: 'projects/us-gcp-ame-con-c2dbd-npd-1/locations/global/inspectTemplates/myInspectTemplate01'
+  bq_dataset: 'dev_dlp_dataset_01'
+  bq_table_name: 'dlp-user-table'
+  schema: 'user_id:STRING,user_name:STRING,user_email:STRING,user_address:STRING,user_city:STRING,user_country:STRING,user_phone:STRING,transaction_id:STRING,transaction_date:TIMESTAMP,user-ssn:STRING,product_id:STRING,product_name:STRING,product_price:STRING,quantity:STRING,payment_type:STRING,provider:STRING,card_number:STRING,expiration_date:STRING,cardholder_name:STRING,billing_address:STRING'
+                      
